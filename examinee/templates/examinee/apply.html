@@ -1,0 +1,71 @@
+{% extends "base_generic.html" %}
+{% block content %}
+{% csrf_token %}
+    <form action="http://markndennis.net/marknden/CTCMBCDEV/index.php?/main/application" method="post" accept-charset="utf-8" class="form-horizontal" id="addexaminee">
+        
+Please carefully read the following before you apply for the exam:
+    <ul>
+        <li>Carefully read the Safety Program Examination Guide and familiarize
+            yourself with the exam request and procedures.</li>
+        <li>You must contact the Invigilation Centre to make an appointment, confirm
+            the time required, and discuss applicable fees.</li>
+        <li>If you do not live within 200 km of an Approved Invigilator, you may
+            propose a new invigilator; however, your request must be submitted a
+            minimum of 60 days prior to your intended exam write date.</li>
+        <li>CTCMA Safety Program Examinations are only available to applicants
+            who are CTCMA registrants (including student registrants) and exam
+            candidates.</li>
+        <li>Only money order or certified cheque made payable to CTCMA is
+            accepted. No refund or exchange.</li>
+        <li>Duplication or sharing content of assessments to others in any manner is
+            strictly prohibited.</li>
+    </ul><br>
+    <table class="table table-bordered">
+        <tr>
+            <td> <label for="invigid"><b>Invigilator:</b></label></td>
+            <td> <label for="exam"><b>Exam:</b></label></td>
+        </tr>
+        <tr><td><select name="invigid" id="invigid" style="width:300px">
+
+                    <option value='490'>490 VCC Assessment  - </option><option value='489'>489 Lina Thomson - </option><option value='485'>485 Joe Smith - aa</option><option value='447'>447 Shelley Chute - University of the Fraser Valley</option><option value='455'>455 Gelin Qi - Bow Valley College</option><option value='443'>443 Paris Voykin - Selkirk College</option><option value='444'>444 Cindy James - Thompson Rivers University</option><option value='454'>454 Melissa Clift - Okanagan College</option><option value='445'>445 Felicity Blaiklock - Vancouver Island University</option><option value='448'>448 Jacqui Chow - Capilano University</option><option value='446'>446 Meghan Ginter - University of Northern British Columbia</option><option value='449'>449 Gina Jenkins - Capilano University</option><option value='488'>488 Mark Bennis - aa</option><option value='481'>481 Mark Dennis - aa</option><option value='451'>451 Linda Schroer - BCIT</option><option value='453'>453 Jonathan Ho - CTCMA</option><option value='452'>452 VCC Assessments - Vancouver Community College</option><option value='450'>450 Veronica Augustin - University of Victoria</option>                </select>
+            </td>
+            <td>
+                <select name="exam" id="exam">
+                    <option value="Acupuncturist" selected>Acupuncturist</option>
+                    <option value="Herbalist">Herbalist</option>
+                    <option value="Reciprocity">Reciprocity</option>
+                    <option value="Doctor of TCM">Doctor of TCM</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td> <label for="fname"><b>First Name:</b></label></td>
+            <td> <label for="lname"><b>Last Name:</b></label></td>
+        </tr>
+        <tr>
+            <td><input type="text" name="fname" id="fname" placeholder="First Name" value=""></td>
+            <td><input type="text" name="lname" id="lname" placeholder="Last Name" value=""></td>
+        </tr>
+        <tr>
+            <td><label for="regnum"><b>Registration # if applicable (ie.FA01234):</b></label></td>
+            <td><label for="email"><b>Email:</b></label></td>
+        </tr>
+        <tr>
+            <td><input type="text" name="regnum" id="regnum" placeholder="Registration Number" value=""></td>
+            <td> <input type="text" name="email" id="email" placeholder="Email" value=""></td>
+        </tr>
+        <tr><td><label for="dob"><b>Date of Birth<br>(YYYY-MM-DD):</b></label></td><td><input type="text" name="dob"  class="input-small" id="dob"> </td>
+        <tr><td><label for="examdate"><b>Intended Exam Date<br> (YYYY-MM-DD):</b></label></td><td><input type="text" name="examdate" class="input-small" id="examdate" readonly></td></tr>
+        <tr><td colspan="2">
+                
+                    <input type="checkbox" id="agree" name="agree" value="agree" required> I declare that I have read the above and all the information provided above are true, complete, and correct.            
+            </td></tr>
+        <tr><td><button type="submit" class="btn btn-success">Apply for Exam</button></td><td><span style='color:red'</span></td></tr>
+
+    </table>
+
+</form>
+<br/><br/>
+
+
+{% endblock content %}
