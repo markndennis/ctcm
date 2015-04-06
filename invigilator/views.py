@@ -16,8 +16,8 @@ def home(request):
 #     template_name = 'invigilator/invigilatorList.html'
    
 def invigilator_list(request):
-    #invig_list = Invigilator.objects.order_by('first_name')
-    invig_list = Invigilator.objects.all()
+    invig_list = Invigilator.objects.order_by('institution')
+    #invig_list = Invigilator.objects.all()
     context = {'invigilator_list':invig_list,'title':'Invigilator List'}
     return render(request, 'invigilator/invigilatorList.html', context)
     
