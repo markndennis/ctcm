@@ -19,5 +19,5 @@ class Examinee(models.Model):
     invigilator = models.ForeignKey('invigilator.Invigilator')
     dob = models.DateField(blank=True)
     intended = models.DateField(blank=True)
-    approved = models.BooleanField(default=None)
+    approved = models.BooleanField(default=False)
     create_date = models.DateTimeField(auto_now_add=True)
