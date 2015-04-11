@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from examinee.models import ExamType, Examinee
 from invigilator.models import Invigilator
+from django.core.mail import send_mail
+from ctcm.views import mail
 import datetime
 
 # Create your views here.
@@ -24,23 +26,31 @@ def apply(request):
     return render(request, 'examinee/apply.html', context)
     
 def application(request):
-    answer1 = request.POST['fname']
-    answer2 = request.POST['lname']
-    answer3 = request.POST['invigid']
-    answer4 = request.POST['exam']
+    postdata={
+    'fname' : request.POST['fname'],
+    'lname' : request.POST['lname'],
+    'regnum' : request.POST['regnum'],
+    'email' : request.POST['email'],
+    'exam' : ExamType.objects.get(pk=request.POST['exam']),
+    'invigilator' : Invigilator.objects.get(pk=request.POST['invigid']),
+    'intended' : request.POST['examdate'],
+    'dob' : request.POST['dob'],
+    }
     
     ne = Examinee()
-    ne.first_name = request.POST['fname']
-    ne.last_name = request.POST['lname']
-    ne.regnum = request.POST['regnum']
-    ne.email = request.POST['email']
-    ne.exam_type = ExamType.objects.get(pk=request.POST['exam'])
-    ne.invigilator = Invigilator.objects.get(pk=request.POST['invigid'])
-    ne.dob = request.POST['dob']
-    ne.intended = request.POST['examdate']
-    #ne.approved = "no"
-    
+    ne.first_name = postdata['fname']
+    ne.last_name = postdata['lname']
+    ne.regnum = postdata['regnum']
+    ne.email = postdata['email']
+    ne.exam_type = postdata['exam']
+    ne.invigilator = postdata['invigilator']
+    ne.dob = postdata['dob']
+    ne.intended = postdata['intended']
     ne.save()
     
-    return HttpResponse("Hello, %s %s <br/> you selected invigilator %s and exam %s" %(answer1, answer2, answer3, answer4))
+    #mail("markndennis@hotmail.com","markndennis@hotmail.com","test mail","%s this is your test mail" %answer1)
+    #return HttpResponse("Hello, %s %s <br/> you selected invigilator %s and exam %s" %(answer1, answer2, answer3, answer4))
+    
+    return render(request, 'examinee/applicationConfirmation.html', postdata)
+    
     

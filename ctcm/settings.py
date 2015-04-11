@@ -90,3 +90,18 @@ TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),'/static/',]
     
+    
+# Email Configuration
+# backend is the default
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'markndendev@gmail.com'
+EMAIL_HOST_PASSWORD ='Safety01'
+EMAIL_USE_TLS = True
+#EMAIL_USE_SSL, 
+#EMAIL_TIMEOUT
+#EMAIL_SSL_CERTFILE
+#EMAIL_SSL_KEYFILE 
