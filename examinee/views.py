@@ -58,3 +58,7 @@ def application(request):
 class ExamineeListView(ListView):
     model = Examinee
     
+    def get_context_data(self, **kwargs):
+        context = super(ExamineeListView, self).get_context_data(**kwargs)
+        context['title'] = "Examinee List Generic View"
+        return context
