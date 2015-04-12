@@ -4,6 +4,7 @@ from examinee.models import ExamType, Examinee
 from invigilator.models import Invigilator
 from django.core.mail import send_mail
 from ctcm.views import mail
+from django.views.generic.list import ListView
 import datetime
 
 # Create your views here.
@@ -54,3 +55,11 @@ def application(request):
     return render(request, 'examinee/applicationConfirmation.html', postdata)
     
     
+class ExamineeListView(ListView):
+
+    model = Examinee
+
+    def get_context_data(self, **kwargs):
+        context = super(ArticleListView, self).get_context_data(**kwargs)
+        context['now'] = timezone.now()
+        return context
