@@ -1,0 +1,13 @@
+
+{% extends "base_generic.html" %} {% block content %} 
+
+<h1>Examinees Generic List View</h1>
+<table class='table table-striped'>
+{% for examinee in object_list %}
+    <tr><td>{{ examinee.last_name }}</td><td>{{ examinee.email }}</td></tr>
+{% empty %}
+    <li>No examinees yet.</li>
+{% endfor %}
+</table>
+
+{% endblock content %}
