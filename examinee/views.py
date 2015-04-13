@@ -5,6 +5,8 @@ from invigilator.models import Invigilator
 from django.core.mail import send_mail
 from ctcm.views import mail
 from django.views.generic.list import ListView
+from django.contrib.auth.decorators import login_required
+
 import datetime
 
 # Create your views here.
@@ -54,11 +56,21 @@ def application(request):
     
     return render(request, 'examinee/applicationConfirmation.html', postdata)
     
+
+@login_required
+def examineelist(request):
+    object_list = Examinee.objects.order_by('last_name')
+    user_greeting = "Welcome "+request.user.first_name + "!"
+    context = {'object_list':object_list,'title':'Examinee List', 'user_greeting':user_greeting}
+    return render(request, 'examinee/examinee_list.html', context)
     
-class ExamineeListView(ListView):
-    model = Examinee
+
+
+# class ExamineeListView(ListView):
+#     model = Examinee
     
-    def get_context_data(self, **kwargs):
-        context = super(ExamineeListView, self).get_context_data(**kwargs)
-        context['title'] = "Examinee List Generic View"
-        return context
+#     @login_required
+#     def get_context_data(self, **kwargs):
+#         context = super(ExamineeListView, self).get_context_data(**kwargs)
+#         context['title'] = "Examinee List Generic View"
+#         return context

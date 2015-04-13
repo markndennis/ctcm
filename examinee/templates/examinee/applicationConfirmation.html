@@ -9,7 +9,9 @@
 <br> Proposed Exam Date: <strong> {{intended}}</strong>
 <br>
 <h3><u>Invigilator Details:</u></h3>
-Invigilator Name:<strong> {{invigilator}} </strong><br>Invigilator Contact Info: <br><strong>{{invigilator.details}}</strong><br>
+Invigilator Name:<strong> {{invigilator}} </strong><br>Invigilator Contact Info: <br><strong>{% autoescape off %}
+   {{invigilator.details}}
+{% endautoescape %}</strong><br>
 <br><strong>Money Order or Certified Cheque</strong>
 <ul>
     <li>Acupuncturist Safety Program Examination $75.00</li>

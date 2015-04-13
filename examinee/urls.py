@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-from examinee.views import ExamineeListView
+#from examinee.views import ExamineeListView
 
 urlpatterns = patterns('',
     # Examples:
@@ -9,6 +9,10 @@ urlpatterns = patterns('',
     url(r'^$', 'examinee.views.home', name='home'),
     url(r'^apply$', 'examinee.views.apply', name='apply'),
     url(r'^application$', 'examinee.views.application', name='application'),
-    url(r'^listexaminees$',ExamineeListView.as_view(), name='listexaminees'),
+    #url(r'^listexaminees$',ExamineeListView.as_view(), name='listexaminees'),
+    url(r'^listexaminees$','examinee.views.examineelist', name='listexaminees'),
+    
+    
+    
     
 )

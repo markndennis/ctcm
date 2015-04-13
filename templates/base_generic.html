@@ -21,21 +21,32 @@
 <body>
     <div class="container">
         <div class="row-fluid">
-
             <div class='col-md-12'>
                 {% load staticfiles %}
                 <a href=""><img src="{% static 'images/ctcmalogodev1.jpg' %}">
                 </a>
-                <div class="pull-right">
-                    <div class="muted">
-                        <h4>{{ title }}</h4>
-                    </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class='col-md-8'>
+                <div class="muted">
+                    {{user_greeting}}
                 </div>
-                <br/>
-                <br/>
+            </div>
+            <div class="col-md-4">
+                <div class="text-muted pull-right">
+                    <h4>{{title}}</h4>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class='col-md-12'>
                 <hr/>
             </div>
         </div>
+
+
+
         {% block menu %}
 
         <div class='col-md-3'>
@@ -54,7 +65,8 @@
                     <a href="{% url 'examinee:apply' %}">Apply for Safety Exam</a>
                 </li>
                 <li>
-                    <a href="">Login</a>
+                    <!--<a href="login?next=/examinee/listexaminees">Login</a>-->
+                    <a href="{% url 'login' %}">Login</a>
                 </li>
             </ul>
         </div>
