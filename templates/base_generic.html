@@ -30,7 +30,7 @@
         <div class="row-fluid">
             <div class='col-md-8'>
                 <div class="muted">
-                    {{user_greeting}}
+                    {{user_greeting|safe}}
                 </div>
             </div>
             <div class="col-md-4">
@@ -66,7 +66,7 @@
                 </li>
                 <li>
                     <!--<a href="login?next=/examinee/listexaminees">Login</a>-->
-                    <a href="{% url 'login' %}">Login</a>
+                    <a href='../login?next=/examinee/listexaminees/'>Login</a>
                 </li>
             </ul>
         </div>

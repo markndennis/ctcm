@@ -60,7 +60,8 @@ def application(request):
 @login_required
 def examineelist(request):
     object_list = Examinee.objects.order_by('last_name')
-    user_greeting = "Welcome "+request.user.first_name + "!"
+    logout = '<a href="/logout?next=/" >(logout)</a>'
+    user_greeting = "Welcome "+request.user.first_name + "! " + logout
     context = {'object_list':object_list,'title':'Examinee List', 'user_greeting':user_greeting}
     return render(request, 'examinee/examinee_list.html', context)
     
