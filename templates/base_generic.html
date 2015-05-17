@@ -11,8 +11,8 @@
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <!--         <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script> -->
-    <script src="http://jquery.bassistance.de/validate/jquery.validate.js"></script>
-    <script src="http://jquery.bassistance.de/validate/additional-methods.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/additional-methods.min.js"></script>
 
 
 
@@ -59,7 +59,7 @@
                     <a href="{% url 'about' %}">About</a>
                 </li>
                 <li>
-                    <a href="{% url 'invigilator:invigilatorList/institution' %}">List of Approved Invigilators</a>
+                    <a href="{% url 'invigilator:invigilatorList' 'last_name' %}">List of Approved Invigilators</a>
                 </li>
                 <li>
                     <a href="{% url 'examinee:apply' %}">Apply for Safety Exam</a>

@@ -4,13 +4,13 @@
 <p>The following invigilators are approved by the College. You can sort the list by clicking on any of the column titles:</p>
 <table class='table table-striped'>
     <tr>
-        <th>Name</th>
-        <th>Institution</th>
-        <th>City</th>
-        <th>Province</th>
-        <th>Country</th>
+        <th><a href="{% url 'invigilator:invigilatorList' 'last_name' %}">Name</a></th>
+        <th><a href="{% url 'invigilator:invigilatorList' 'institution' %}">Institution</a></th>
+        <th><a href="{% url 'invigilator:invigilatorList' 'city' %}">City</a></th>
+        <th><a href="{% url 'invigilator:invigilatorList' 'province' %}">Province</a></th>
+        <th><a href="{% url 'invigilator:invigilatorList' 'country' %}">Country</a></th>
     </tr>
-    {% for invig in invigilator_list %}
+    {% for invig in invigilatorList %}
     <tr>
         <td><a href="{% url 'invigilator:invigilatorDetail' invig.pk %}">{{invig.first_name}} {{invig.last_name}}</a>
         </td>

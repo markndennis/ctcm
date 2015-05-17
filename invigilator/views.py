@@ -32,9 +32,10 @@ def invigilator_detail(request, invig_id):
 #         context['title'] = "List of Approved Invigilators"
 #         return context 
 
-def invigilator_list(request,so):
+def invigilator_list(request, so):
+    #sord='last_name'
     invig_list = Invigilator.objects.order_by(so)
-    context = {'invigilator_list':invig_list,'title':'Invigilator List'}
+    context = {'invigilatorList':invig_list,'title':'Invigilator List'}
     return render(request, 'invigilator/invigilatorList.html', context)
     
 
