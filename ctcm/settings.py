@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'examinee',
     'invigilator',
-    
+    'exams',
 )
 
 MIDDLEWARE_CLASSES = (

@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from examinee.models import ExamType, Examinee
+from examinee.models import Examinee
+from exams.models import ExamType
 from invigilator.models import Invigilator
 from django.core.mail import send_mail
 from ctcm.views import mail
 from django.views.generic.list import ListView
 from django.contrib.auth.decorators import login_required
-
 import datetime
 
 # Create your views here.
@@ -16,13 +16,13 @@ def home(request):
     return render(request, 'examinee/home.html', context)
     
 def apply(request):
-    exam_types = ExamType.objects.all()
+    #exam_types = ExamType.objects.all()
     invig_list = Invigilator.objects.order_by('institution','last_name')
     intend_date = (datetime.datetime.now()+datetime.timedelta(30))
     intend_date = intend_date.strftime('%Y-%m-%d')
     context = {
         'title' : 'Exam Application',
-        'exam_types' : exam_types,
+        #'exam_types' : exam_types,
         'invig_list' : invig_list,
         'intend_date' : intend_date,
         }
@@ -45,7 +45,7 @@ def application(request):
     ne.last_name = postdata['lname']
     ne.regnum = postdata['regnum']
     ne.email = postdata['email']
-    ne.exam_type = postdata['exam']
+    #ne.exam_type = postdata['exam']
     ne.invigilator = postdata['invigilator']
     ne.dob = postdata['dob']
     ne.intended = postdata['intended']

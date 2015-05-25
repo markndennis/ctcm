@@ -4,7 +4,8 @@
 <p>The following invigilators are approved by the College. You can sort the list by clicking on any of the column titles:</p>
 <table class='table table-striped'>
     <tr>
-        <th><a href="{% url 'invigilator:invigilatorList' 'last_name' %}">Name</a></th>
+        <th><a href="{% url 'invigilator:invigilatorList' 'last_name' %}">Name</a>
+        <a href="{% url 'invigilator:invigilatorList' '-last_name' %}"><span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></a></th>
         <th><a href="{% url 'invigilator:invigilatorList' 'institution' %}">Institution</a></th>
         <th><a href="{% url 'invigilator:invigilatorList' 'city' %}">City</a></th>
         <th><a href="{% url 'invigilator:invigilatorList' 'province' %}">Province</a></th>

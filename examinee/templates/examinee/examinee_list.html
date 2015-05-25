@@ -2,9 +2,9 @@
 {% extends "base_generic.html" %} {% block content %} 
 
 <table class='table table-striped'>
-    <tr><th>Examinee Name</th><th>Exam Type</th><th>Proposed Exam Date</th></tr>
+    <tr><th>Examinee Name</th><th>Proposed Exam Date</th></tr>
 {% for examinee in object_list %}
-    <tr><td>{{ examinee.first_name }} {{ examinee.last_name }}</td><td>{{ examinee.exam_type }}</td><td>{{ examinee.intended }}</td></tr>
+    <tr><td>{{ examinee.first_name }} {{ examinee.last_name }}</td><td>{{ examinee.intended }}</td></tr>
 {% empty %}
     <li>No examinees yet.</li>
 {% endfor %}

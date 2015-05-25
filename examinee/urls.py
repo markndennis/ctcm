@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     url(r'^application$', 'examinee.views.application', name='application'),
     #url(r'^listexaminees$',ExamineeListView.as_view(), name='listexaminees'),
     url(r'^listexaminees/$','examinee.views.examineelist', name='listexaminees'),
+    url(r'^createtestexaminees/(?P<num>\d+)/$','examinee.tests.createtestexaminees', name='testexaminees'),
     
     
     

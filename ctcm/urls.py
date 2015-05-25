@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     #url(r'^', include('django.contrib.auth.urls')), # this automatically includes patters for login, logout etc.
     url(r'^examinee/',include('examinee.urls', namespace='examinee')),
     url(r'^invigilator/',include('invigilator.urls', namespace = 'invigilator')),
+    url(r'^exams/',include('exams.urls', namespace = 'exams')),
     url(r'^$','ctcm.views.welcome', name='welcome'),
     url(r'^about$','ctcm.views.about', name='about'),
     url(r'^login/$',auth.views.login,{'extra_context':{'title':'login'}},name='login'),
