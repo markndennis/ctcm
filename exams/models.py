@@ -10,7 +10,7 @@ class ExamType(models.Model):
 
 
 class Exam(models.Model):
-    exam_type = models.CharField(max_length=40)
+    exam_type = models.ForeignKey(ExamType)
     sub_test = models.CharField(max_length=2)
     exam_ques = models.CharField(max_length=200)
     

@@ -3,7 +3,7 @@ from exams.models import ExamType
 from django.shortcuts import redirect
 
 # Create your tests here.
-examtypes=["acupuncturist","herbalist","reciprocity","doctor of TCM"]
+examtypes=["Acupuncturist","Herbalist","Reciprocity","Doctor of TCM"]
 
 def createexamtype(request):
     ExamType.objects.all().delete()

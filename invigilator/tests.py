@@ -1,6 +1,8 @@
 from django.test import TestCase
 from invigilator.models import Invigilator, Institution
 from django.http import HttpResponse
+from django.shortcuts import redirect
+
 import os, random
 
 # Create your tests here.
@@ -18,7 +20,7 @@ def createinstitutions(request):
         insts.append(ni.name)
         ni.save()
    
-    return HttpResponse("<h1>Institutions</h1><h2>Institution names are:</h2> %s" % insts)
+    return redirect("admin/invigilator/institution/")
         
     
 def createtestinvigs(request,num):
@@ -51,7 +53,8 @@ def createtestinvigs(request,num):
         ni.country="Canada"
         ni.save()
     
-    return HttpResponse("<h1>Mark Names test</h1><h2>First names are:</h2> %s %s <br><h2>Last names are:</h2> %s %s" % (fnames,len(fnames),lnames,len(lnames)))
+    return redirect("/admin/invigilator/invigilator/")
+    
 
 def getfileinput(filename):
     fo = open(filename,"r")

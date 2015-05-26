@@ -16,13 +16,13 @@ def home(request):
     return render(request, 'examinee/home.html', context)
     
 def apply(request):
-    #exam_types = ExamType.objects.all()
+    exam_types = ExamType.objects.all()
     invig_list = Invigilator.objects.order_by('institution','last_name')
     intend_date = (datetime.datetime.now()+datetime.timedelta(30))
     intend_date = intend_date.strftime('%Y-%m-%d')
     context = {
         'title' : 'Exam Application',
-        #'exam_types' : exam_types,
+        'exam_types' : exam_types,
         'invig_list' : invig_list,
         'intend_date' : intend_date,
         }
