@@ -45,7 +45,7 @@ def application(request):
     ne.last_name = postdata['lname']
     ne.regnum = postdata['regnum']
     ne.email = postdata['email']
-    #ne.exam_type = postdata['exam']
+    ne.exam_type = postdata['exam']
     ne.invigilator = postdata['invigilator']
     ne.dob = postdata['dob']
     ne.intended = postdata['intended']

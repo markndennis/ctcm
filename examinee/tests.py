@@ -34,7 +34,7 @@ def createtestexaminees(request,num):
         ne.last_name = lname
         ne.regnum = "123"
         ne.invigilator = iname
-        #ne.exam_type = etype
+        ne.exam_type = etype
         ne.email = fname+"@"+lname+".com"
         ne.dob = getrandomdob()
         ne.intended = getrandomintended()
