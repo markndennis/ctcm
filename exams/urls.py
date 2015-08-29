@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     
     url(r'^createexamtype$','exams.tests.createexamtype', name='testexamtype'),
     url(r'^createques$','exams.tests.createques', name='testques'),
+    url(r'^createexams$','exams.tests.createexams', name='testexams'),
     url(r'^question/(?P<num>\d+)/$','exams.views.displayques', name='displayques'),
     
 )

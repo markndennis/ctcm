@@ -8,7 +8,7 @@ from django.shortcuts import redirect
 import os, random
 
 
-# Create your tests here.
+# create test examinee names
 def createtestexaminees(request,num):
     Examinee.objects.all().delete()
     fresults = getfileinput("static/files/fnames.csv")

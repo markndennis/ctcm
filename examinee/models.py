@@ -1,13 +1,4 @@
 from django.db import models
-#from invigilator.models import Invigilator
-
-# Create your models here.
-
-# class ExamType(models.Model):
-#     exam_type= models.CharField(max_length=20)
-    
-#     def __unicode__(self):              # __unicode__ on Python 2
-#         return self.exam_type
 
 
 class Examinee(models.Model):
@@ -21,3 +12,29 @@ class Examinee(models.Model):
     intended = models.DateField(blank=True)
     approved = models.BooleanField(default=False)
     create_date = models.DateTimeField(auto_now_add=True)
+    
+    def __unicode__(self):              # __unicode__ on Python 2
+         self.name = self.last_name + ", " + self.first_name + " - " + str(self.exam_type)
+         return self.name
+
+
+class ExamInstance(models.Model):
+    examinee = models.CharField(max_length=10)
+    start_time=models.DateTimeField(blank=True)
+    elapsed_time=models.DateTimeField(blank=True)
+    end_time=models.DateTimeField(blank=True)
+    ques_sequence=models.CharField(max_length=100)
+    
+    def __unicode__(self):
+        return self.examinee
+        
+    
+class ExamResults(models.Model):
+    examinee =  models.CharField(max_length=10)
+    ques_number = models.IntegerField()
+    ques_response = models.CharField(max_length=2)
+    
+
+    
+    
+    

@@ -1,7 +1,8 @@
 from django.test import TestCase
-from exams.models import ExamType, Questions
+from exams.models import ExamType, Questions, Exam
 from django.shortcuts import redirect
 from django.http import HttpResponse
+import os, random
 
 # Create your tests here.
 examtypes=["Acupuncturist","Herbalist","Reciprocity","Doctor of TCM"]
@@ -42,9 +43,28 @@ def createques(request):
         
     #return HttpResponse("hello,<br/>%s" % z)
     return redirect("/admin/exams/questions/")
-        
-        
-        
+
+def createexams(request):
+    Exam.objects.all().delete()
+    exams=ExamType.objects.all()
+    subtests = ["A","B","C","D"]
+   
+    for et in exams:
+        for st in subtests:
+            qnums = ""
+            for x in range(0,10):
+                qnum = random.randint(1,160)
+                qnums = qnums + str(qnum) + ","
+            
+            qnums = qnums[:-1]
+            ne = Exam()
+            ne.exam_type = et
+            ne.sub_test = st
+            ne.exam_ques = qnums
+            ne.save()
+             
+    return redirect("/admin/exams/exam/")
+
     
 def getfileinput(filename):
     fo = open(filename, 'r')
